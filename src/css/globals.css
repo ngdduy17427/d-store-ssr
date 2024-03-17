@@ -1,0 +1,50 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "swiper/swiper.min.css";
+@import "swiper/modules/navigation.min.css";
+
+@import "./skeleton.css";
+
+:root {
+  --header-height: 4rem;
+  --footer-height: 4rem;
+  --glb-color-link: #4281de;
+  --glb-color-link-hover: #0ea5ea;
+  --glb-border-radius: 0.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 16px;
+  &:has(.aside-category-mobile.open),
+  &:has(.aside-cart.open-cart) {
+    overflow: hidden;
+  }
+}
+
+container {
+  max-width: 1280px !important;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+img {
+  position: static !important;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .product-grid-container {
+    padding: 1rem 0;
+    gap: 0.5rem;
+  }
+}

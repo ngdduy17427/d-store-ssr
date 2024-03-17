@@ -1,0 +1,25 @@
+.product-grid-container {
+  width: 100%;
+  padding: 1rem 0;
+  gap: 1rem;
+  position: relative;
+  &:has(.product-card) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-items: center;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .product-grid-container {
+    &:has(.product-card) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product-grid-container {
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,30 @@
+.category-card {
+  text-align: center;
+  background-color: #fff;
+  padding: 1rem 0;
+  border: 1px solid #f3f3f3;
+  border-radius: var(--glb-border-radius);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  transition: 0.25s ease-in-out;
+  user-select: none;
+  &:hover {
+    border-color: grey;
+    box-shadow: rgb(0 0 0 / 8%) 0 2px 4px;
+    transform: translateY(-5px);
+  }
+  img {
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: contain;
+  }
+  &.skeleton {
+    min-height: 60px;
+  }
+  &.active {
+    border-color: grey;
+  }
+}

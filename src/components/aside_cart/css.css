@@ -1,0 +1,174 @@
+.aside-cart {
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000040;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  visibility: hidden;
+  .aside-cart-container {
+    min-width: 400px;
+    max-width: 400px;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.25s ease-in-out;
+    transform: translateX(100%);
+    .aside-cart-header {
+      height: var(--header-height);
+      padding: 0 1rem 0 1.5rem;
+      border-bottom: 1px solid #f3f3f3;
+      box-shadow: rgb(0 0 0 / 8%) 0 2px 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .aside-cart-content {
+      height: calc(100% - var(--header-height) - var(--footer-height));
+      mask-image: linear-gradient(
+        to bottom,
+        rgba(255, 0, 0, 0.1) 0%,
+        red 7.5px,
+        red calc(100% - 7.5px),
+        rgba(255, 0, 0, 0.1) 100%
+      );
+      overflow: auto;
+      position: relative;
+      scrollbar-width: none;
+    }
+    .aside-cart-footer {
+      height: var(--footer-height);
+      padding: 0.5rem;
+      border-top: 1px solid #f3f3f3;
+      box-shadow: rgb(0 0 0 / 8%) 0px -2px 4px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      .btn-checkout {
+        height: 100%;
+        color: #fff;
+        background-color: #212121;
+        padding: 0.75rem 2rem;
+        border-radius: var(--glb-border-radius);
+        display: flex;
+        align-items: center;
+        user-select: none;
+        p {
+          &:first-child {
+            padding-right: 1rem;
+          }
+          &:last-child {
+            padding-left: 1rem;
+            position: relative;
+            &::before {
+              content: "";
+              width: 1px;
+              height: 100%;
+              background-color: #fff;
+              display: inline-block;
+              position: absolute;
+              left: 0;
+            }
+          }
+        }
+        &:disabled {
+          color: rgba(0, 0, 0, 0.25);
+          background-color: rgba(0, 0, 0, 0.04);
+          cursor: not-allowed;
+          p {
+            &:last-child {
+              &::before {
+                background-color: rgba(0, 0, 0, 0.25);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .aside-cart-checkout {
+    .customer-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      .form-field {
+        display: flex;
+        flex-direction: column;
+        input,
+        select {
+          background-color: #fff;
+          padding: 0.5rem;
+          border: 1px solid;
+          border-radius: var(--glb-border-radius);
+        }
+        input[type="number"] {
+          &::-webkit-inner-spin-button {
+            display: none;
+          }
+        }
+      }
+      &.error {
+        .form-field {
+          input,
+          select {
+            border-color: #ff4d4f;
+          }
+          input[type="number"] {
+            &::-webkit-inner-spin-button {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    .payment-alert-box {
+      text-align: center;
+      color: #707070;
+      background-color: #f5f5f5;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      svg {
+        font-size: 2rem;
+      }
+    }
+    .product-card-aside {
+      padding: 0 0 1rem 0;
+    }
+  }
+  &.open-cart {
+    visibility: visible;
+    .aside-cart-container {
+      transform: translateX(0);
+    }
+    .aside-cart-checkout {
+      transform: translateX(100%);
+    }
+  }
+  &.open-checkout {
+    visibility: visible;
+    .aside-cart-container {
+      transform: translateX(100%);
+    }
+    .aside-cart-checkout {
+      transform: translateX(0);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .aside-cart {
+    .aside-cart-container {
+      min-width: 100%;
+      max-width: 100%;
+    }
+  }
+}

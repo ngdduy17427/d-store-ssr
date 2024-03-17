@@ -1,0 +1,13 @@
+.header-category-menu {
+  width: 2rem;
+  margin-left: auto;
+  display: none;
+  justify-content: center;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .header-category-menu {
+    display: flex;
+  }
+}

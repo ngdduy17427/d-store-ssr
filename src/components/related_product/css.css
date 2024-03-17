@@ -1,0 +1,12 @@
+.related-product-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .title {
+    font-size: 1.5rem;
+  }
+  .product-grid-container {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}

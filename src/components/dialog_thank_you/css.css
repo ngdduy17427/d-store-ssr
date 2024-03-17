@@ -1,0 +1,36 @@
+.dialog-thank-you {
+  width: 50%;
+  border-radius: var(--glb-border-radius);
+  .dialog-container {
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    svg {
+      font-size: 4rem;
+      color: #6fd649;
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    button {
+      width: 100%;
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #6fd649;
+      padding: 0.5rem 0;
+      border-radius: var(--glb-border-radius);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dialog-thank-you {
+    width: 90%;
+  }
+}

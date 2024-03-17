@@ -1,0 +1,21 @@
+.btn-scroll-top {
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background-color: #000 !important;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  transition: 0.25s ease-in-out;
+  transform: translateY(calc(100% + 2rem));
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+  }
+  &.show {
+    transform: translateY(0);
+  }
+}
