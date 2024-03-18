@@ -9,7 +9,7 @@ const ProductPage = async ({ params }: { params: { id: string } }) => {
   const product: any = await fetchProductId(params.id);
 
   return (
-    <section className="product-section">
+    <section className="page-content product-section">
       <ProductDetail product={product} />
       <AdBanner data-ad-slot="9855515500" data-ad-format="auto" data-full-width-responsive="true" />
       <RelatedProduct url={`products/category/${product.category}`} />

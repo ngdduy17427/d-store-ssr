@@ -19,26 +19,29 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "D-Store",
   description: "D-Store eCommerce template",
+  verification: {
+    google: "dN8lHWZALHGbA50-rCrdqMRSXtqqUStmBGl_mxccGco",
+  },
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="en">
     <body>
+      <Script
+        async
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
+        crossOrigin="anonymous"
+      />
       <NextTopLoader showSpinner={false} zIndex={10000} />
       <Header />
       <Main>
         <AsideCategory />
         {children}
-        <Script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
-          crossOrigin="anonymous"
-        />
       </Main>
       <Footer />
+      <AsideCart />
       <BtnScrollTop />
       <AsideCategoryMobile />
-      <AsideCart />
     </body>
   </html>
 );

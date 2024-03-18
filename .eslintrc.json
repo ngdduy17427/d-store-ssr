@@ -28,5 +28,10 @@
     "tailwindcss/no-custom-classname": "off",
     "tailwindcss/classnames-order": "off",
     "prettier/prettier": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

@@ -8,16 +8,15 @@ import "./css.css";
 const HeaderSearchForm = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const categoryParams = useSearchParams().get("keyword") ?? "";
   const [searchKey, setSearchKey] = useState("");
 
   useLayoutEffect(() => {
-    pathname === "/search" &&
-      setSearchKey(searchParams.get("keyword") ? (searchParams.get("keyword") as string) : "");
-  }, [pathname, searchParams]);
+    pathname === "/search" && setSearchKey(categoryParams);
+  }, [pathname, categoryParams]);
 
   const onSearch = () => {
-    if (searchKey === "") return;
+    if (searchKey === "" || searchKey === categoryParams) return;
     router.push(`/search?keyword=${searchKey}`);
   };
 

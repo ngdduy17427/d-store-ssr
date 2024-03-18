@@ -11,12 +11,16 @@ const SearchPage = async ({
   const products: any[] = await fetchProducts("products/search", { q: searchParams.keyword });
 
   return (
-    <section className="flex w-full flex-1 flex-col gap-4 py-4">
+    <section className="page-content">
       <h1 className="w-full text-[1.5rem]">
         <strong>Search result:</strong>&nbsp;
         <p className="inline-block break-all font-[500]">{searchParams.keyword}</p>
       </h1>
-      <ProductGridContainer url="products/search" searchParams={{ q: searchParams.keyword }} />
+      <ProductGridContainer
+        url="products/search"
+        searchParams={{ q: searchParams.keyword, limit: 12, skip: 0 }}
+        loadMore
+      />
       <RelatedProduct url={`products/category/${products[0]?.category}`} />
     </section>
   );

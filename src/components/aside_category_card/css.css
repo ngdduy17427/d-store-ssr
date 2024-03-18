@@ -22,7 +22,7 @@
     object-fit: contain;
   }
   &.skeleton {
-    min-height: 60px;
+    min-height: 57px;
   }
   &.active {
     border-color: grey;

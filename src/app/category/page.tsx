@@ -6,12 +6,16 @@ const CategoryPage = async ({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) => (
-  <section className="flex w-full flex-1 flex-col gap-4 py-4">
+  <section className="page-content">
     <h1 className="w-full text-[1.5rem]">
       <strong>Category:</strong>&nbsp;
       <p className="inline-block break-all font-[500]">{searchParams.keyword}</p>
     </h1>
-    <ProductGridContainer url={`products/category/${searchParams.keyword}`} />
+    <ProductGridContainer
+      url={`products/category/${searchParams.keyword}`}
+      searchParams={{ limit: 12, skip: 0 }}
+      loadMore
+    />
   </section>
 );
 

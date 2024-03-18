@@ -4,14 +4,24 @@ import { Suspense } from "react";
 import { uuidv4 } from "utils/utils_helper";
 import "./css.css";
 
-const AsideCategory = async () => (
+const AsideCategoryFallback = () => (
   <aside className="aside-category">
-    {(await fetchCategories())?.map((category: string) => (
-      <Suspense key={uuidv4()} fallback={<AsideCategoryCardFallback />}>
-        <AsideCategoryCard category={category} />
-      </Suspense>
-    ))}
+    {Array(12)
+      .fill(null)
+      .map(() => (
+        <AsideCategoryCardFallback key={uuidv4()} />
+      ))}
   </aside>
+);
+
+const AsideCategory = async () => (
+  <Suspense fallback={<AsideCategoryFallback />}>
+    <aside className="aside-category">
+      {(await fetchCategories())?.map((category: string) => (
+        <AsideCategoryCard key={uuidv4()} category={category} />
+      ))}
+    </aside>
+  </Suspense>
 );
 
 export default AsideCategory;

@@ -38,6 +38,15 @@ img {
   object-fit: contain;
 }
 
+.page-content {
+  flex: 1;
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 @media screen and (max-width: 768px) {
   body {
     font-size: 14px;
