@@ -3,8 +3,8 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 1rem 0 0 0;
+  gap: 1rem;
+  padding: 1rem 0;
   .product-detail {
     display: flex;
     gap: 1rem;
@@ -91,7 +91,6 @@
 @media screen and (max-width: 768px) {
   .product-section {
     padding: 1rem 0;
-    gap: 1rem;
     .product-detail {
       flex-direction: column;
       .product-image {

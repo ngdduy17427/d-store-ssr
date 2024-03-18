@@ -13,7 +13,14 @@ const AdBanner = (props: any) => {
     }
   }, []);
 
-  return <ins className="adsbygoogle" style={{ display: "block" }} {...props} />;
+  return (
+    <ins
+      className="adsbygoogle"
+      style={{ display: "block" }}
+      data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
+      {...props}
+    />
+  );
 };
 
 export default AdBanner;

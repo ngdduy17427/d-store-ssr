@@ -42,9 +42,4 @@ img {
   body {
     font-size: 14px;
   }
-
-  .product-grid-container {
-    padding: 1rem 0;
-    gap: 0.5rem;
-  }
 }

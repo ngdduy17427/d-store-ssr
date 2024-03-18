@@ -1,6 +1,5 @@
 .product-grid-container {
   width: 100%;
-  padding: 1rem 0;
   gap: 1rem;
   position: relative;
   &:has(.product-card) {

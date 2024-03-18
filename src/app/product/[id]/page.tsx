@@ -11,12 +11,7 @@ const ProductPage = async ({ params }: { params: { id: string } }) => {
   return (
     <section className="product-section">
       <ProductDetail product={product} />
-      <AdBanner
-        data-ad-client="ca-pub-2444372121300105"
-        data-ad-slot="9855515500"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      />
+      <AdBanner data-ad-slot="9855515500" data-ad-format="auto" data-full-width-responsive="true" />
       <RelatedProduct url={`products/category/${product.category}`} />
     </section>
   );

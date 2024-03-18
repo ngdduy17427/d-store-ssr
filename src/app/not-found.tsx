@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const NotFound = () => (
-  <div className="relative flex w-full flex-1 flex-col items-center gap-4 p-4">
+  <div className="relative flex w-full flex-1 flex-col items-center gap-4 py-4">
     <Image
       src="/images/not-found.png"
       alt="Not found"

@@ -1,5 +1,6 @@
 import { TProduct } from "@type";
 import { fetchProducts } from "actions";
+import AdBanner from "components/ad_banner";
 import ProductCard, { ProductCardSkeleton } from "components/product_card";
 import ProductLoadMore from "components/product_grid_container/product_load_more";
 import Image from "next/image";
@@ -47,6 +48,7 @@ const ProductGridContainer = async ({
         )}
         {loadMore && <ProductLoadMore url={url} searchParams={searchParams} />}
       </div>
+      <AdBanner data-ad-slot="9855515500" data-ad-format="auto" data-full-width-responsive="true" />
     </Suspense>
   );
 };

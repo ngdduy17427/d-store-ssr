@@ -6,9 +6,15 @@ import Footer from "components/footer";
 import Header from "components/header";
 import Main from "components/main";
 import "css/globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import NextTopLoader from "nextjs-toploader";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
 
 export const metadata: Metadata = {
   title: "D-Store",
@@ -25,8 +31,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
         {children}
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2444372121300105"
-          strategy="afterInteractive"
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
+          crossOrigin="anonymous"
         />
       </Main>
       <Footer />
