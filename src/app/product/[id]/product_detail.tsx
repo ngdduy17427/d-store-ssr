@@ -3,6 +3,13 @@ import Link from "next/link";
 import { formatCurrency } from "utils/utils_helper";
 import SwiperImage from "./swiper_image";
 
+export const ProductDetailSkeleton = () => (
+  <article className="product-detail">
+    <div className="product-image skeleton" />
+    <div className="product-description skeleton" />
+  </article>
+);
+
 const ProductDetail = ({ product }: { product: any }) => (
   <article className="product-detail">
     <div className="product-image">

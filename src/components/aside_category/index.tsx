@@ -15,7 +15,7 @@ const AsideCategoryFallback = () => (
 );
 
 const AsideCategory = async () => (
-  <Suspense fallback={<AsideCategoryFallback />}>
+  <Suspense key={uuidv4()} fallback={<AsideCategoryFallback />}>
     <aside className="aside-category">
       {(await fetchCategories())?.map((category: string) => (
         <AsideCategoryCard key={uuidv4()} category={category} />

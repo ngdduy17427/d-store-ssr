@@ -36,9 +36,17 @@
         red calc(100% - 7.5px),
         rgba(255, 0, 0, 0.1) 100%
       );
-      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       position: relative;
+      overflow: auto;
       scrollbar-width: none;
+      &:has(.product-card-aside) {
+        justify-content: unset;
+        align-items: unset;
+      }
     }
     .aside-cart-footer {
       height: var(--footer-height);
@@ -105,11 +113,6 @@
           padding: 0.5rem;
           border: 1px solid;
           border-radius: var(--glb-border-radius);
-        }
-        input[type="number"] {
-          &::-webkit-inner-spin-button {
-            display: none;
-          }
         }
       }
       &.error {

@@ -25,8 +25,8 @@ const AsideCartContainer = ({
         <Image
           src="/images/no-cart.png"
           alt="No cart"
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
+          width={200}
+          height={200}
           quality={100}
           priority
         />

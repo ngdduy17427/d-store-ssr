@@ -7,7 +7,6 @@ import Header from "components/header";
 import Main from "components/main";
 import "css/globals.css";
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import NextTopLoader from "nextjs-toploader";
 
 export const viewport: Viewport = {
@@ -17,21 +16,17 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "D-Store",
-  description: "D-Store eCommerce template",
+  title: process.env.NEXT_PUBLIC_APP_TITLE,
+  description: process.env.NEXT_PUBLIC_APP_DESCRIPTION,
   verification: {
-    google: "dN8lHWZALHGbA50-rCrdqMRSXtqqUStmBGl_mxccGco",
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
+  openGraph: {},
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="en">
     <body>
-      <Script
-        async
-        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
-        crossOrigin="anonymous"
-      />
       <NextTopLoader showSpinner={false} zIndex={10000} />
       <Header />
       <Main>

@@ -1,27 +1,28 @@
-import { fetchProducts } from "actions";
-import ProductGridContainer from "components/product_grid_container";
-import RelatedProduct from "components/related_product";
+import ProductGridContainer, {
+  ProductGridContainerFallback,
+} from "components/product_grid_container";
 import { Metadata } from "next";
+import { Suspense } from "react";
+import { uuidv4 } from "utils/utils_helper";
 
 const SearchPage = async ({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) => {
-  const products: any[] = await fetchProducts("products/search", { q: searchParams.keyword });
-
   return (
     <section className="page-content">
       <h1 className="w-full text-[1.5rem]">
-        <strong>Search result:</strong>&nbsp;
+        <strong>Search result:&nbsp;</strong>
         <p className="inline-block break-all font-[500]">{searchParams.keyword}</p>
       </h1>
-      <ProductGridContainer
-        url="products/search"
-        searchParams={{ q: searchParams.keyword, limit: 12, skip: 0 }}
-        loadMore
-      />
-      <RelatedProduct url={`products/category/${products[0]?.category}`} />
+      <Suspense key={uuidv4()} fallback={<ProductGridContainerFallback />}>
+        <ProductGridContainer
+          url="products/search"
+          searchParams={{ q: searchParams.keyword, limit: 12, skip: 0 }}
+          loadMore
+        />
+      </Suspense>
     </section>
   );
 };
@@ -31,7 +32,7 @@ export const generateMetadata = async ({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }): Promise<Metadata> => ({
-  title: `D-Store - Search | ${searchParams.keyword}`,
+  title: `${process.env.NEXT_PUBLIC_APP_TITLE} - Search: ${searchParams.keyword}`,
   description: `Search ${searchParams.keyword}`,
   openGraph: {},
 });

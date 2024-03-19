@@ -112,7 +112,7 @@ const AsideCartCheckout = ({
           <label className="form-field">
             <input
               id="customerPhone"
-              type="number"
+              type="tel"
               placeholder="Phone"
               value={formData.phone}
               onChange={(event) => handleChangeFormData("phone", event.target.value)}

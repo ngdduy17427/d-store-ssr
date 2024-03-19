@@ -27,6 +27,7 @@
     top: 15px;
   }
   .product-card-thumb {
+    width: 100%;
     min-height: 150px;
     max-height: 150px;
     position: relative;

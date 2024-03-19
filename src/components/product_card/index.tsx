@@ -1,6 +1,4 @@
-"use client";
-
-import BtnAddToCart from "components/btn_add_to_cart";
+import BtnAddToCart, { BtnAddToCartSkeleton } from "components/btn_add_to_cart";
 import Image from "next/image";
 import Link from "next/link";
 import { formatCurrency } from "utils/utils_helper";
@@ -9,7 +7,8 @@ import "./css.css";
 export const ProductCardSkeleton = () => (
   <article className="product-card">
     <div className="product-card-thumb skeleton" />
-    <button type="button" className="product-card-add-cart-btn skeleton" />
+    <div className="product-card-description skeleton h-[100px]" />
+    <BtnAddToCartSkeleton />
   </article>
 );
 

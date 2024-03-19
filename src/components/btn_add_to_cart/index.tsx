@@ -5,6 +5,10 @@ import { MdPlusOne } from "react-icons/md";
 import { fetchItemsInCart, updateLocalStorage } from "utils/utils_helper";
 import "./css.css";
 
+export const BtnAddToCartSkeleton = () => (
+  <button type="button" className="btn-add-to-cart skeleton" />
+);
+
 const BtnAddToCart = ({ product }: { product: any }) => {
   const btnRef = useRef<HTMLButtonElement>(null);
 
