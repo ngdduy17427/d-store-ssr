@@ -11,7 +11,7 @@ import {
   removeLocalStorage,
   uuidv4,
 } from "utils/utils_helper";
-import { handleCloseAsideCartCheckout } from ".";
+import { handleCloseAsideCartCheckout } from "..";
 
 const shippingCost = 1;
 

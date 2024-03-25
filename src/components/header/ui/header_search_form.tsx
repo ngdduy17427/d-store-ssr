@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, useLayoutEffect, useState } from "react";
 import { MdSearch } from "react-icons/md";
-import "./css.css";
 
 export const HeaderSearchFormFallback = () => (
   <form className="header-search-form">

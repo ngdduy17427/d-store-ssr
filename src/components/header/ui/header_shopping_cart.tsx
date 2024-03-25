@@ -4,7 +4,6 @@ import { handleOpenAsideCart } from "components/aside_cart";
 import { useLayoutEffect, useState } from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { fetchItemsInCart } from "utils/utils_helper";
-import "./css.css";
 
 const HeaderShoppingCart = () => {
   const [itemsInCartLength, setItemsInCartLength] = useState(0);

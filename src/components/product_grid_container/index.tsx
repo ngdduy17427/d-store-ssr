@@ -1,7 +1,7 @@
 import { TProduct } from "@type";
 import { fetchProducts } from "actions";
 import ProductCard, { ProductCardSkeleton } from "components/product_card";
-import ProductLoadMore from "components/product_grid_container/product_load_more";
+import ProductLoadMore from "components/product_grid_container/ui/product_load_more";
 import Image from "next/image";
 import { uuidv4 } from "utils/utils_helper";
 import "./css.css";

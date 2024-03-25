@@ -1,12 +1,12 @@
 "use client";
 
-import DialogThankYou from "components/dialog_thank_you";
-import LoadingOverlay from "components/loading_overlay";
+import DialogThankYou from "components/aside_cart/ui/dialog_thank_you";
+import LoadingOverlay from "components/aside_cart/ui/loading_overlay";
 import { useLayoutEffect, useMemo, useState } from "react";
 import { addClassToElement, fetchItemsInCart, removeClassFromElement } from "utils/utils_helper";
-import AsideCartCheckout from "./aside_cart_checkout";
-import AsideCartContainer from "./aside_cart_container";
 import "./css.css";
+import AsideCartCheckout from "./ui/aside_cart_checkout";
+import AsideCartContainer from "./ui/aside_cart_container";
 
 export const handleOpenAsideCart = () => addClassToElement("asideCart", "open-cart");
 export const handleCloseAsideCart = () => removeClassFromElement("asideCart", "open-cart");

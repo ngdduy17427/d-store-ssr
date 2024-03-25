@@ -38,13 +38,6 @@
     /* Completeness */
     "skipLibCheck": true
   },
-  "include": [
-    "next-env.d.ts",
-    "next-global.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "build/types/**/*.ts"
-  ],
+  "include": ["next-env.d.ts", "next-global.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

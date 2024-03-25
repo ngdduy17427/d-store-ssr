@@ -33,4 +33,4 @@ You can just **fork or clone** this repository and use it as is.
 
 ## License
 
-The D-Store SSR template is licensed under the terms of the MIT license.
+The D-Store SSR template is licensed under the terms of the [MIT license](/LICENSE).

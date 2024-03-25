@@ -2,8 +2,8 @@ import { fetchCategories } from "actions";
 import AsideCategoryCard, { AsideCategoryCardFallback } from "components/aside_category_card";
 import { Suspense } from "react";
 import { uuidv4 } from "utils/utils_helper";
-import AsideCategoryCloseBtn from "./aside_category_close_btn";
 import "./css.css";
+import AsideCategoryCloseBtn from "./ui/aside_category_close_btn";
 
 const AsideCategoryMobile = async () => (
   <aside id="asideCategoryMobile" className="aside-category-mobile">

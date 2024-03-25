@@ -2,7 +2,6 @@
 
 import { MdMenu } from "react-icons/md";
 import { addClassToElement } from "utils/utils_helper";
-import "./css.css";
 
 const HeaderCategoryMenu = () => (
   <div

@@ -1,5 +1,4 @@
 import { MdCheckCircle } from "react-icons/md";
-import "./css.css";
 
 const DialogThankYou = () => (
   <dialog id="dialogThankYou" className="dialog-thank-you">

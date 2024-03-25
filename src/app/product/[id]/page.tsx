@@ -4,7 +4,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import { Suspense, lazy } from "react";
 import { uuidv4 } from "utils/utils_helper";
 import "./css.css";
-import ProductDetail, { ProductDetailSkeleton } from "./product_detail";
+import ProductDetail, { ProductDetailSkeleton } from "./ui/product_detail";
 
 const RelatedCategoryProduct = lazy(() => import("components/related_category_product"));
 

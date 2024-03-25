@@ -4,7 +4,7 @@ import ProductCardAside from "components/product_card_aside";
 import Image from "next/image";
 import { MdClose } from "react-icons/md";
 import { formatCurrency } from "utils/utils_helper";
-import { handleCloseAsideCart, handleOpenAsideCartCheckout } from ".";
+import { handleCloseAsideCart, handleOpenAsideCartCheckout } from "..";
 
 const AsideCartContainer = ({
   itemsInCart,

@@ -5,23 +5,26 @@ import BtnScrollTop from "components/btn_scroll_top";
 import Footer from "components/footer";
 import Header from "components/header";
 import Main from "components/main";
-import "css/globals.css";
+import ServiceWorker from "components/service_worker";
+import "css/global.css";
 import type { Metadata, Viewport } from "next";
 import NextTopLoader from "nextjs-toploader";
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  minimumScale: 1,
   maximumScale: 1,
+  userScalable: false,
 };
 
 export const metadata: Metadata = {
   title: process.env.NEXT_PUBLIC_APP_TITLE,
   description: process.env.NEXT_PUBLIC_APP_DESCRIPTION,
+  openGraph: {},
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
-  openGraph: {},
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
@@ -37,6 +40,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
       <AsideCart />
       <BtnScrollTop />
       <AsideCategoryMobile />
+      <ServiceWorker />
     </body>
   </html>
 );

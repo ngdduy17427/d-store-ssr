@@ -1,5 +1,4 @@
 import Image from "next/image";
-import "./css.css";
 
 const LoadingOverlay = () => (
   <div id="loadingOverlay" className="loading-overlay">

@@ -16,9 +16,9 @@ const SwiperImage = ({ images }: { images: string[] }) => {
         thumbs={{ swiper: thumbsSwiper }}
         autoplay={{ delay: 3000 }}
         navigation
-        loop={images.length >= 2}
+        loop={images?.length >= 2}
       >
-        {images.map((image: string) => (
+        {images?.map((image: string) => (
           <SwiperSlide key={image}>
             <Image
               src={image}
@@ -38,7 +38,7 @@ const SwiperImage = ({ images }: { images: string[] }) => {
         watchSlidesProgress
         slidesPerView={3}
       >
-        {images.map((image: string) => (
+        {images?.map((image: string) => (
           <SwiperSlide key={image}>
             <Image
               src={image}
