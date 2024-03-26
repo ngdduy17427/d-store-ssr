@@ -1,7 +1,7 @@
 "use client";
 
 import DialogThankYou from "components/aside_cart/ui/dialog_thank_you";
-import LoadingOverlay from "components/aside_cart/ui/loading_overlay";
+import LoadingOverlay from "components/loading_overlay";
 import { useLayoutEffect, useMemo, useState } from "react";
 import { addClassToElement, fetchItemsInCart, removeClassFromElement } from "utils/utils_helper";
 import "./css.css";

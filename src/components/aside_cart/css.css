@@ -165,31 +165,6 @@
       transform: translateX(0);
     }
   }
-  .loading-overlay {
-    width: 100vw;
-    height: 100vh;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    user-select: none;
-    &::before {
-      content: "";
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.25);
-      position: absolute;
-      inset: 0;
-    }
-    img {
-      z-index: 1;
-    }
-    &.show {
-      display: flex;
-    }
-  }
   .dialog-thank-you {
     width: 50%;
     border-radius: var(--glb-border-radius);

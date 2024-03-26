@@ -1,15 +1,14 @@
 {
   "name": "d-store-ssr",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "private": true,
   "author": "ngdduy17427",
   "scripts": {
-    "dev": "npm run clean && npm run prebuild:serviceWorker && next dev",
-    "build": "npm run clean && npm run prebuild:serviceWorker && next build",
+    "dev": "npm run clean && next dev",
+    "build": "npm run clean && next build",
     "start": "npm run build && next start",
     "lint": "next lint",
-    "prebuild:serviceWorker": "tsc src/utils/service_worker.ts && copyfiles -u 2 src/utils/service_worker.js public && rimraf src/utils/service_worker.js",
-    "clean": "rimraf .next && rimraf public/service_worker.js"
+    "clean": "rimraf .next"
   },
   "dependencies": {
     "next": "^14.1.3",

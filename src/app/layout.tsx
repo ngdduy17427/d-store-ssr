@@ -5,7 +5,6 @@ import BtnScrollTop from "components/btn_scroll_top";
 import Footer from "components/footer";
 import Header from "components/header";
 import Main from "components/main";
-import ServiceWorker from "components/service_worker";
 import "css/global.css";
 import type { Metadata, Viewport } from "next";
 import NextTopLoader from "nextjs-toploader";
@@ -40,7 +39,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
       <AsideCart />
       <BtnScrollTop />
       <AsideCategoryMobile />
-      <ServiceWorker />
     </body>
   </html>
 );
