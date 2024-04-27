@@ -1,5 +1,6 @@
 "use client";
 
+import { IProduct } from "@type";
 import DialogThankYou from "components/aside_cart/ui/dialog_thank_you";
 import LoadingOverlay from "components/loading_overlay";
 import { useLayoutEffect, useMemo, useState } from "react";
@@ -14,20 +15,21 @@ export const handleOpenAsideCartCheckout = () => addClassToElement("asideCart", 
 export const handleCloseAsideCartCheckout = () =>
   removeClassFromElement("asideCart", "open-cart", "open-checkout");
 
-const AsideCart = () => {
-  const [itemsInCart, setItemsInCart] = useState<any[]>([]);
+const AsideCart = (): JSX.Element => {
+  const [itemsInCart, setItemsInCart] = useState<IProduct[]>([]);
 
-  const getItemsInCart = () => setItemsInCart(fetchItemsInCart());
+  const getItemsInCart = (): void => setItemsInCart(fetchItemsInCart());
 
-  useLayoutEffect(() => {
+  useLayoutEffect((): (() => void) => {
     getItemsInCart();
 
     window.addEventListener("storage", getItemsInCart);
-    return () => window.removeEventListener("storage", getItemsInCart);
+    return (): void => window.removeEventListener("storage", getItemsInCart);
   }, []);
 
   const totalPrice = useMemo(
-    () => itemsInCart?.reduce((total, item) => item.price * item._amount + total, 0),
+    (): number =>
+      itemsInCart?.reduce((total, item): number => item.price * item._amount + total, 0),
     [itemsInCart]
   );
 

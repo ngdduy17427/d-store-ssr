@@ -11,7 +11,7 @@ const CategoryPage = async ({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
-}) => (
+}): Promise<JSX.Element> => (
   <section className="page-content">
     <h1 className="w-full text-[1.5rem]">
       <strong>Category:</strong>&nbsp;

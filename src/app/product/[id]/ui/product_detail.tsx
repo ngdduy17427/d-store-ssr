@@ -1,16 +1,17 @@
+import { IProduct } from "@type";
 import BtnAddToCart from "components/btn_add_to_cart";
 import Link from "next/link";
 import { formatCurrency } from "utils/utils_helper";
 import SwiperImage from "./swiper_image";
 
-export const ProductDetailSkeleton = () => (
+export const ProductDetailSkeleton = (): JSX.Element => (
   <article className="product-detail">
     <div className="product-image skeleton" />
     <div className="product-description skeleton" />
   </article>
 );
 
-const ProductDetail = ({ product }: { product: any }) => (
+const ProductDetail = ({ product }: { product: IProduct }): JSX.Element => (
   <article className="product-detail">
     <div className="product-image">
       <SwiperImage images={product.images} />

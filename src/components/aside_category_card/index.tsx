@@ -1,16 +1,19 @@
 "use client";
 
+import { TCategory } from "@type";
 import classNames from "classnames";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { removeClassFromElement } from "utils/utils_helper";
 import "./css.css";
 
-export const AsideCategoryCardFallback = () => <span className="category-card skeleton" />;
+export const AsideCategoryCardFallback = (): JSX.Element => (
+  <span className="category-card skeleton" />
+);
 
-const AsideCategoryCard = ({ category }: { category: string }) => {
+const AsideCategoryCard = ({ category }: { category: TCategory }): JSX.Element => {
   const categoryParams = useSearchParams().get("keyword");
-  const handleCloseCategory = () => removeClassFromElement("asideCategoryMobile", "open");
+  const handleCloseCategory = (): void => removeClassFromElement("asideCategoryMobile", "open");
 
   return (
     <Link

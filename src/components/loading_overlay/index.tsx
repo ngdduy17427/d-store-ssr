@@ -2,7 +2,7 @@ import classNames from "classnames";
 import Image from "next/image";
 import "./css.css";
 
-const LoadingOverlay = ({ className }: { className?: string }) => (
+const LoadingOverlay = ({ className }: { className?: string }): JSX.Element => (
   <div id="loadingOverlay" className={classNames("loading-overlay", className)}>
     <Image
       src="/svgs/loading.svg"

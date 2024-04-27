@@ -2,15 +2,16 @@
 
 import Image from "next/image";
 import { Fragment, useState } from "react";
+import Swiper from "swiper";
 import { Autoplay, Navigation, Thumbs } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperContainer, SwiperSlide } from "swiper/react";
 
-const SwiperImage = ({ images }: { images: string[] }) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+const SwiperImage = ({ images }: { images: string[] }): JSX.Element => {
+  const [thumbsSwiper, setThumbsSwiper] = useState<Swiper | null>(null);
 
   return (
     <Fragment>
-      <Swiper
+      <SwiperContainer
         className="swiper-image"
         modules={[Autoplay, Navigation, Thumbs]}
         thumbs={{ swiper: thumbsSwiper }}
@@ -18,39 +19,43 @@ const SwiperImage = ({ images }: { images: string[] }) => {
         navigation
         loop={images?.length >= 2}
       >
-        {images?.map((image: string) => (
-          <SwiperSlide key={image}>
-            <Image
-              src={image}
-              alt="Product image"
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              quality={100}
-              priority
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <Swiper
+        {images?.map(
+          (image: string): JSX.Element => (
+            <SwiperSlide key={image}>
+              <Image
+                src={image}
+                alt="Product image"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                quality={100}
+                priority
+              />
+            </SwiperSlide>
+          )
+        )}
+      </SwiperContainer>
+      <SwiperContainer
         className="swiper-image-thumb"
         modules={[Thumbs]}
         onSwiper={setThumbsSwiper}
         watchSlidesProgress
         slidesPerView={3}
       >
-        {images?.map((image: string) => (
-          <SwiperSlide key={image}>
-            <Image
-              src={image}
-              alt="Product image"
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              quality={100}
-              priority
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+        {images?.map(
+          (image: string): JSX.Element => (
+            <SwiperSlide key={image}>
+              <Image
+                src={image}
+                alt="Product image"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                quality={100}
+                priority
+              />
+            </SwiperSlide>
+          )
+        )}
+      </SwiperContainer>
     </Fragment>
   );
 };

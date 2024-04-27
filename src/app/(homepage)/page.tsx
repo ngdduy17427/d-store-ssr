@@ -4,7 +4,7 @@ import ProductGridContainer, {
 import { Suspense } from "react";
 import { uuidv4 } from "utils/utils_helper";
 
-const Homepage = async () => (
+const Homepage = async (): Promise<JSX.Element> => (
   <section className="page-content">
     <Suspense key={uuidv4()} fallback={<ProductGridContainerFallback />}>
       <ProductGridContainer url="products?" searchParams={{ limit: 12, skip: 0 }} loadMore />

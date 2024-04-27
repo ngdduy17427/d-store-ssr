@@ -1,18 +1,19 @@
 "use client";
 
+import { IProduct } from "@type";
 import { useRef } from "react";
 import { MdPlusOne } from "react-icons/md";
 import { fetchItemsInCart, updateLocalStorage } from "utils/utils_helper";
 import "./css.css";
 
-export const BtnAddToCartSkeleton = () => (
+export const BtnAddToCartSkeleton = (): JSX.Element => (
   <button type="button" className="btn-add-to-cart skeleton" />
 );
 
-const BtnAddToCart = ({ product }: { product: any }) => {
+const BtnAddToCart = ({ product }: { product: IProduct }): JSX.Element => {
   const btnRef = useRef<HTMLButtonElement>(null);
 
-  const handleAddProductCartAnimation = async () => {
+  const handleAddProductCartAnimation = async (): Promise<HTMLImageElement> => {
     const parentBtn = btnRef.current?.parentElement;
     const imgElement = document.createElement("img");
 
@@ -20,37 +21,38 @@ const BtnAddToCart = ({ product }: { product: any }) => {
     imgElement.style.width = `${parentBtn?.getBoundingClientRect().width}px`;
     imgElement.style.height = `${parentBtn?.getBoundingClientRect().height}px`;
     imgElement.className = "!absolute";
-    imgElement.style.top = `${window.scrollY + (parentBtn?.getBoundingClientRect().top as number)}px`;
+    imgElement.style.top = `${window.scrollY + Number(parentBtn?.getBoundingClientRect().top)}px`;
     imgElement.style.left = `${parentBtn?.getBoundingClientRect().left}px`;
     imgElement.style.transition = `all 0.5s`;
     imgElement.style.pointerEvents = `none`;
     imgElement.style.zIndex = `10000`;
     document.getElementsByTagName("main")[0].appendChild(imgElement);
 
-    setTimeout(() => {
+    setTimeout((): void => {
       const headerShoppingCart = document.getElementById("headerShoppingCart");
 
       imgElement.style.width = `20px`;
       imgElement.style.height = `20px`;
       imgElement.style.top = `${
-        window.scrollY + (headerShoppingCart?.getBoundingClientRect().top as number)
+        window.scrollY + Number(headerShoppingCart?.getBoundingClientRect().top)
       }px`;
       imgElement.style.left = `${headerShoppingCart?.getBoundingClientRect().left}px`;
     }, 50);
 
-    return new Promise((resolve) =>
-      setTimeout(
-        () => resolve(document.getElementsByTagName("main")[0].removeChild(imgElement)),
-        600
-      )
+    return new Promise(
+      (resolve): NodeJS.Timeout =>
+        setTimeout(
+          (): void => resolve(document.getElementsByTagName("main")[0].removeChild(imgElement)),
+          600
+        )
     );
   };
 
-  const handleAddProductCart = () => {
-    handleAddProductCartAnimation().then(() => {
+  const handleAddProductCart = (): void => {
+    handleAddProductCartAnimation().then((): void => {
       const itemsInCart = fetchItemsInCart();
       const productInCart = itemsInCart?.filter(
-        (item: typeof product) => item.id === product.id
+        (item: typeof product): boolean => item.id === product.id
       )[0];
 
       if (!productInCart) {

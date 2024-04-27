@@ -1,7 +1,7 @@
 import Link from "next/link";
 import "./css.css";
 
-const Footer = () => (
+const Footer = (): JSX.Element => (
   <footer>
     <container>
       <p>From </p>

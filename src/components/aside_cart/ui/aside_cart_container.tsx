@@ -1,5 +1,6 @@
 "use client";
 
+import { IProduct } from "@type";
 import ProductCardAside from "components/product_card_aside";
 import Image from "next/image";
 import { MdClose } from "react-icons/md";
@@ -10,9 +11,9 @@ const AsideCartContainer = ({
   itemsInCart,
   totalPrice,
 }: {
-  itemsInCart: any[];
+  itemsInCart: IProduct[];
   totalPrice: number;
-}) => (
+}): JSX.Element => (
   <div id="asideCartContainer" className="aside-cart-container">
     <div className="aside-cart-header">
       <h1 className="text-[1.5rem] font-bold">Shopping Cart</h1>
@@ -20,7 +21,7 @@ const AsideCartContainer = ({
     </div>
     <div className="aside-cart-content">
       {itemsInCart?.length > 0 ? (
-        itemsInCart?.map((item) => <ProductCardAside key={item.id} product={item} />)
+        itemsInCart?.map((item): JSX.Element => <ProductCardAside key={item.id} product={item} />)
       ) : (
         <Image
           src="/images/no-cart.png"

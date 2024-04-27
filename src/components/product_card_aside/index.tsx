@@ -1,5 +1,6 @@
 "use client";
 
+import { IProduct } from "@type";
 import { handleCloseAsideCartCheckout } from "components/aside_cart";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,17 +13,21 @@ enum UpdateAmountType {
   INCREMENT,
 }
 
-const ProductCardAside = ({ product }: { product: any }) => {
-  const handleRemoveProduct = () => {
+const ProductCardAside = ({ product }: { product: IProduct }): JSX.Element => {
+  const handleRemoveProduct = (): void => {
     const itemsInCart = fetchItemsInCart();
-    const productInCart = itemsInCart?.filter((item: typeof product) => item.id === product.id)[0];
+    const productInCart = itemsInCart?.filter(
+      (item: IProduct): boolean => item.id === product.id
+    )[0];
     itemsInCart.splice(itemsInCart.indexOf(productInCart), 1);
     updateLocalStorage("itemsInCart", itemsInCart);
   };
 
-  const handleUpdateAmount = (type: UpdateAmountType) => {
+  const handleUpdateAmount = (type: UpdateAmountType): void => {
     const itemsInCart = fetchItemsInCart();
-    const productInCart = itemsInCart?.filter((item: typeof product) => item.id === product.id)[0];
+    const productInCart = itemsInCart?.filter(
+      (item: IProduct): boolean => item.id === product.id
+    )[0];
 
     switch (type) {
       case UpdateAmountType.DECREMENT:
@@ -70,14 +75,14 @@ const ProductCardAside = ({ product }: { product: any }) => {
           <div className="counter">
             <span
               className="counter-update decrement"
-              onClick={() => handleUpdateAmount(UpdateAmountType.DECREMENT)}
+              onClick={(): void => handleUpdateAmount(UpdateAmountType.DECREMENT)}
             >
               <MdRemove className="text-[1.25rem]" />
             </span>
             <p className="counter-value">{product._amount}</p>
             <span
               className="counter-update increment"
-              onClick={() => handleUpdateAmount(UpdateAmountType.INCREMENT)}
+              onClick={(): void => handleUpdateAmount(UpdateAmountType.INCREMENT)}
             >
               <MdAdd className="text-[1.25rem]" />
             </span>

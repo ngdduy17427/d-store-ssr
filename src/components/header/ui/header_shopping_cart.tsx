@@ -5,16 +5,16 @@ import { useLayoutEffect, useState } from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { fetchItemsInCart } from "utils/utils_helper";
 
-const HeaderShoppingCart = () => {
+const HeaderShoppingCart = (): JSX.Element => {
   const [itemsInCartLength, setItemsInCartLength] = useState(0);
 
-  const getItemsInCartLength = () => setItemsInCartLength(fetchItemsInCart().length);
+  const getItemsInCartLength = (): void => setItemsInCartLength(fetchItemsInCart().length);
 
-  useLayoutEffect(() => {
+  useLayoutEffect((): (() => void) => {
     getItemsInCartLength();
 
     window.addEventListener("storage", getItemsInCartLength);
-    return () => window.removeEventListener("storage", getItemsInCartLength);
+    return (): void => window.removeEventListener("storage", getItemsInCartLength);
   }, []);
 
   return (

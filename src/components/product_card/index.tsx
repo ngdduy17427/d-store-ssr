@@ -1,10 +1,11 @@
+import { IProduct } from "@type";
 import BtnAddToCart, { BtnAddToCartSkeleton } from "components/btn_add_to_cart";
 import Image from "next/image";
 import Link from "next/link";
 import { formatCurrency } from "utils/utils_helper";
 import "./css.css";
 
-export const ProductCardSkeleton = () => (
+export const ProductCardSkeleton = (): JSX.Element => (
   <article className="product-card">
     <div className="product-card-thumb skeleton" />
     <div className="product-card-description skeleton h-[100px]" />
@@ -12,7 +13,7 @@ export const ProductCardSkeleton = () => (
   </article>
 );
 
-const ProductCard = ({ product }: { product: any }) => (
+const ProductCard = ({ product }: { product: IProduct }): JSX.Element => (
   <article className="product-card">
     {product.isSale && <span className="product-card-badge">Sale</span>}
     <Link href={`/product/${product.id}`} className="product-card-thumb">

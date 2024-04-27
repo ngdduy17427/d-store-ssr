@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
 };
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => (
+const RootLayout = ({ children }: { children: React.ReactNode }): JSX.Element => (
   <html lang="en">
     <body>
       <NextTopLoader showSpinner={false} zIndex={10000} />

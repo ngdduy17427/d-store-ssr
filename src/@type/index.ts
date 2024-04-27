@@ -1,4 +1,6 @@
-export interface TProduct {
+export type TCategory = string;
+
+export interface IProduct {
   id: number;
   title: string;
   description: string;
@@ -10,4 +12,6 @@ export interface TProduct {
   category: string;
   thumbnail: string;
   images: string[];
+  isSale: boolean;
+  _amount: number;
 }

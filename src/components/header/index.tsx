@@ -8,7 +8,7 @@ import { Suspense } from "react";
 import { uuidv4 } from "utils/utils_helper";
 import "./css.css";
 
-const Header = () => (
+const Header = (): JSX.Element => (
   <header>
     <container>
       <Link href="/" className="logo">

@@ -5,18 +5,18 @@ import { MdArrowUpward } from "react-icons/md";
 import { addClassToElement, removeClassFromElement } from "utils/utils_helper";
 import "./css.css";
 
-const BtnScrollTop = () => {
-  const handleScrollTop = () => window.scrollTo({ top: 0 });
-  const handleShowBtn = () => {
+const BtnScrollTop = (): JSX.Element => {
+  const handleScrollTop = (): void => window.scrollTo({ top: 0 });
+  const handleShowBtn = (): void => {
     if (window.scrollY > 100) addClassToElement("btnScrollTop", "show");
     else removeClassFromElement("btnScrollTop", "show");
   };
 
-  useLayoutEffect(() => {
+  useLayoutEffect((): (() => void) => {
     handleShowBtn();
 
     window.addEventListener("scroll", handleShowBtn);
-    return () => window.removeEventListener("scroll", handleShowBtn);
+    return (): void => window.removeEventListener("scroll", handleShowBtn);
   }, []);
 
   return (

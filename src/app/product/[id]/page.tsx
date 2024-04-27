@@ -1,21 +1,25 @@
+import { IProduct } from "@type";
 import { fetchProductId } from "actions";
 import { RelatedCategoryProductFallback } from "components/related_category_product";
 import { Metadata, ResolvingMetadata } from "next";
-import { Suspense, lazy } from "react";
+import { ComponentType, Suspense, lazy } from "react";
 import { uuidv4 } from "utils/utils_helper";
 import "./css.css";
 import ProductDetail, { ProductDetailSkeleton } from "./ui/product_detail";
 
-const RelatedCategoryProduct = lazy(() => import("components/related_category_product"));
+const RelatedCategoryProduct = lazy(
+  (): Promise<{ default: ComponentType<{ url: string }> }> =>
+    import("components/related_category_product")
+);
 
-const ProductPageFallback = () => (
+const ProductPageFallback = (): JSX.Element => (
   <section className="page-content product-section">
     <ProductDetailSkeleton />
   </section>
 );
 
-const ProductPage = async ({ params }: { params: { id: string } }) => {
-  const product: any = await fetchProductId(params.id);
+const ProductPage = async ({ params }: { params: { id: string } }): Promise<JSX.Element> => {
+  const product: IProduct = await fetchProductId(params.id);
 
   return (
     <Suspense key={uuidv4()} fallback={<ProductPageFallback />}>

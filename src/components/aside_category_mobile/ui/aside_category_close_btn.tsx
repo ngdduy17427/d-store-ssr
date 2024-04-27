@@ -3,10 +3,10 @@
 import { MdClose } from "react-icons/md";
 import { removeClassFromElement } from "utils/utils_helper";
 
-const AsideCategoryCloseBtn = () => (
+const AsideCategoryCloseBtn = (): JSX.Element => (
   <MdClose
     className="cursor-pointer text-[1.8rem]"
-    onClick={() => removeClassFromElement("asideCategoryMobile", "open")}
+    onClick={(): void => removeClassFromElement("asideCategoryMobile", "open")}
   />
 );
 

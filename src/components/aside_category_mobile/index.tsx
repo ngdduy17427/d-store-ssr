@@ -5,7 +5,7 @@ import { uuidv4 } from "utils/utils_helper";
 import "./css.css";
 import AsideCategoryCloseBtn from "./ui/aside_category_close_btn";
 
-const AsideCategoryMobile = async () => (
+const AsideCategoryMobile = async (): Promise<JSX.Element> => (
   <aside id="asideCategoryMobile" className="aside-category-mobile">
     <div className="aside-category-mobile-container">
       <div className="aside-category-mobile-header">
@@ -13,11 +13,13 @@ const AsideCategoryMobile = async () => (
         <AsideCategoryCloseBtn />
       </div>
       <div className="aside-category-mobile-content">
-        {(await fetchCategories())?.map((category: string) => (
-          <Suspense key={uuidv4()} fallback={<AsideCategoryCardFallback />}>
-            <AsideCategoryCard category={category} />
-          </Suspense>
-        ))}
+        {(await fetchCategories())?.map(
+          (category: string): JSX.Element => (
+            <Suspense key={uuidv4()} fallback={<AsideCategoryCardFallback />}>
+              <AsideCategoryCard category={category} />
+            </Suspense>
+          )
+        )}
       </div>
     </div>
   </aside>

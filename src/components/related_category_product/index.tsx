@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import { uuidv4 } from "utils/utils_helper";
 import "./css.css";
 
-export const RelatedCategoryProductFallback = () => (
+export const RelatedCategoryProductFallback = (): JSX.Element => (
   <section className="related-category-product-section">
     <h1 className="title">
       <strong>Related Products</strong>
@@ -13,7 +13,7 @@ export const RelatedCategoryProductFallback = () => (
   </section>
 );
 
-const RelatedCategoryProduct = async ({ url }: { url: string }) => (
+const RelatedCategoryProduct = async ({ url }: { url: string }): Promise<JSX.Element> => (
   <section className="related-category-product-section">
     <h1 className="title">
       <strong>Related Products</strong>

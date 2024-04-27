@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, useLayoutEffect, useState } from "react";
 import { MdSearch } from "react-icons/md";
 
-export const HeaderSearchFormFallback = () => (
+export const HeaderSearchFormFallback = (): JSX.Element => (
   <form className="header-search-form">
     <label className="search-field">
       <input id="searchForm" placeholder="Search..." type="search" />
@@ -14,17 +14,17 @@ export const HeaderSearchFormFallback = () => (
   </form>
 );
 
-const HeaderSearchForm = () => {
+const HeaderSearchForm = (): JSX.Element => {
   const router = useRouter();
   const pathname = usePathname();
   const categoryParams = useSearchParams().get("keyword") ?? "";
   const [searchKey, setSearchKey] = useState("");
 
-  useLayoutEffect(() => {
+  useLayoutEffect((): void => {
     pathname === "/search" && setSearchKey(categoryParams);
   }, [pathname, categoryParams]);
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     if (searchKey === "" || searchKey === categoryParams) return;
     router.push(`/search?keyword=${searchKey}`);
@@ -37,8 +37,8 @@ const HeaderSearchForm = () => {
           id="searchForm"
           placeholder="Search..."
           type="search"
-          value={searchKey as string}
-          onChange={(event) => setSearchKey(event.target.value)}
+          value={searchKey}
+          onChange={(event): void => setSearchKey(event.target.value)}
         />
         <Link href={`/search?keyword=${searchKey}`}>
           <MdSearch className="text-[1.5rem] md:text-[1.8rem]" />

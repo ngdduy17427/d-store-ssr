@@ -1,5 +1,6 @@
 "use client";
 
+import { IProduct } from "@type";
 import countries from "components/aside_cart/countries";
 import ProductCardAside from "components/product_card_aside";
 import { useState } from "react";
@@ -19,9 +20,9 @@ const AsideCartCheckout = ({
   itemsInCart,
   totalPrice,
 }: {
-  itemsInCart: any[];
+  itemsInCart: IProduct[];
   totalPrice: number;
-}) => {
+}): JSX.Element => {
   const [formData, setFormData] = useState({
     name: "",
     address: "",
@@ -29,7 +30,7 @@ const AsideCartCheckout = ({
     phone: "",
   });
 
-  const handleChangeFormData = (key: string, value: string) => {
+  const handleChangeFormData = (key: string, value: string): void => {
     if (document.getElementById("customerForm")?.classList.contains("error"))
       removeClassFromElement("customerForm", "error");
 
@@ -39,14 +40,14 @@ const AsideCartCheckout = ({
     }));
   };
 
-  const onSubmit = () => {
+  const onSubmit = (): void => {
     if (formData.name === "" || formData.address === "" || formData.phone === "") {
       document.getElementById("asideCartCheckoutContent")?.scrollTo({ top: 0, behavior: "smooth" });
       return addClassToElement("customerForm", "error");
     }
 
     addClassToElement("loadingOverlay", "show");
-    setTimeout(() => {
+    setTimeout((): void => {
       removeClassFromElement("loadingOverlay", "show");
       handleCloseAsideCartCheckout();
       setFormData((prevState) => ({
@@ -81,7 +82,7 @@ const AsideCartCheckout = ({
               type="text"
               placeholder="Name"
               value={formData.name}
-              onChange={(event) => handleChangeFormData("name", event.target.value)}
+              onChange={(event): void => handleChangeFormData("name", event.target.value)}
             />
           </label>
           <label className="form-field">
@@ -90,23 +91,25 @@ const AsideCartCheckout = ({
               type="text"
               placeholder="Address"
               value={formData.address}
-              onChange={(event) => handleChangeFormData("address", event.target.value)}
+              onChange={(event): void => handleChangeFormData("address", event.target.value)}
             />
           </label>
           <label className="form-field">
             <select
               id="customerCountry"
               value={formData.country}
-              onChange={(event) => handleChangeFormData("country", event.target.value)}
+              onChange={(event): void => handleChangeFormData("country", event.target.value)}
             >
               <option key={uuidv4()} value="defaultValue">
                 Select country...
               </option>
-              {countries.map((country) => (
-                <option key={uuidv4()} value={country.code}>
-                  {country.name}
-                </option>
-              ))}
+              {countries.map(
+                (country): JSX.Element => (
+                  <option key={uuidv4()} value={country.code}>
+                    {country.name}
+                  </option>
+                )
+              )}
             </select>
           </label>
           <label className="form-field">
@@ -115,7 +118,7 @@ const AsideCartCheckout = ({
               type="tel"
               placeholder="Phone"
               value={formData.phone}
-              onChange={(event) => handleChangeFormData("phone", event.target.value)}
+              onChange={(event): void => handleChangeFormData("phone", event.target.value)}
             />
           </label>
         </form>
@@ -129,7 +132,7 @@ const AsideCartCheckout = ({
         <h1 className="text-[1.25rem]">
           <strong>Order summary</strong>
         </h1>
-        {itemsInCart?.map((item) => <ProductCardAside key={item.id} product={item} />)}
+        {itemsInCart?.map((item): JSX.Element => <ProductCardAside key={item.id} product={item} />)}
         <div className="flex justify-between">
           <p>Subtotal</p>
           <p>{formatCurrency(totalPrice, "en-US", { style: "currency", currency: "USD" })}</p>
